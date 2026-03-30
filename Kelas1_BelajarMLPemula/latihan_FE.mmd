@@ -1,0 +1,12 @@
+---
+id: 5ac9ddae-1dfd-4c9c-93ce-01f4392353b7
+---
+flowchart TD
+    A(Data Mentah) --> B(Dummy Data)
+    B --> C(Generate Fitur Kategorik)
+    C --> F(Pisahkan ke X & Y)
+    F --> G(generate RF dan train di X yang sudah di drop fitur kategorik)
+    G --> H(Mengambil fitur important dengan looping dan threshold lalu dimuat ke dalam variabel baru 'x_important')
+    H --> I(Membuat variabel x_selected untuk gabungkan fitur kategorik dan encoding)
+    H--> J(cleaning dengan IQR pada numeric columns. pastikan disini baik X & Y sama sama di drop agar barisnya tetap sama)
+    J--> K(Generate Ulang dataset agar seimbang dengan SMOTE)
